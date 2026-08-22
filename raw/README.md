@@ -37,7 +37,7 @@ python3 ~/.claude/skills/ingest/scripts/ingest_state.py status # ingest 대상
 ## 🔒 이 디렉터리는 통째로 gitignore 대상이다
 
 저작권 있는 책·강의 자료, 클리핑한 기사, 개인 기록이 여기 모인다.
-저장소는 public remote(`HJC96/wiki`)에 연결돼 있으므로 **구조만 커밋되고 내용은 로컬에만 남는다.**
+저장소는 public remote(`HJC96/llm-wiki`)에 연결돼 있으므로 **구조만 커밋되고 내용은 로컬에만 남는다.**
 
 커밋되는 것은 이 `README.md`와 각 폴더의 `.gitkeep`뿐이다.
 

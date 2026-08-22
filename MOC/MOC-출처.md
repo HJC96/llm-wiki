@@ -3,7 +3,7 @@ title: MOC-출처
 type: moc
 tags: [meta]
 created: 2026-08-15
-updated: 2026-08-15
+updated: 2026-08-22
 ---
 
 # MOC — 출처
@@ -20,6 +20,8 @@ updated: 2026-08-15
 | [[DDIA]] | `~/Documents/DDIA/` → `raw/books/` | 1장, 5장 복제 |
 | [[오브젝트]] | `~/Desktop/git/Obejct/` | |
 | [[DDD Start 2]] | `~/Desktop/git/ddd-start2/` | |
+| **[[Optimistic Offline Lock (PoEAA)]]** ✅ | `raw/articles/` — martinfowler.com 카탈로그 | 16장 중 패턴 2개 |
+| **[[Pessimistic Offline Lock (PoEAA)]]** ✅ | `raw/articles/` — martinfowler.com 카탈로그 | Coarse-Grained Lock 미확보 |
 
 ## 강의
 
@@ -42,6 +44,12 @@ updated: 2026-08-15
 - `~/Documents/분산_섹션별_정리.md`
 - `~/Desktop/DDIA_1장_학습노트.md`
 - `~/Documents/DDIA/DDIA_5장_복제_학습노트.md`
+
+## 실험실
+
+| 소스 페이지 | 원본 위치 |
+|---|---|
+| **[[deep-dive 실험실]]** ✅ | `raw/code/` — 모듈 14개 중 3개 처리. lab 3 + 개념 2 배출 |
 
 ## OSS 기여
 

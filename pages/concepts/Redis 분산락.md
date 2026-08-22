@@ -3,10 +3,10 @@ title: Redis 분산락
 type: concept
 status: growing
 tags: [lock, concurrency, redis]
-sources: ["[[분산 트랜잭션 학습노트]]"]
+sources: ["[[분산 트랜잭션 학습노트]]", "[[Pessimistic Offline Lock (PoEAA)]]"]
 moc: ["[[MOC-동시성]]", "[[MOC-분산시스템]]"]
 created: 2026-08-15
-updated: 2026-08-15
+updated: 2026-08-22
 ---
 
 ## 한 줄 정의
@@ -67,8 +67,26 @@ public boolean tryLock(String key, String value) {
 
 💬 "Redis가 죽으면?"까지 오면 Redlock 논쟁 영역이다. "락 서버 장애 시 정책(요청 거부 vs 통과)을 정해 둬야 한다"까지만 말하고 선을 그어도 좋다.
 
+## 실험으로 확인한 것
+
+🟢 [[선착순 쿠폰 발급 동시성]] — Redis 분산락 **1312ms**, Redisson도 **1312ms**로 동일. 반면 Redis Lua 원자 차감은 **41ms**.
+
+🔴 **분산락은 요청마다 네트워크 왕복 + 획득/해제 비용을 낸다.** 같은 Redis를 쓰면서도 락을 쓰느냐 원자 연산을 쓰느냐로 **30배** 차이가 났다. 단일 프로세스면 `synchronized`(933ms)가 더 싸다.
+
+💬 "동시성 문제 = 분산락"으로 반사적으로 가면 이 비용을 매번 낸다.
+
+## 패턴으로 보면
+
+이 락이 하는 일은 [[Pessimistic Offline Lock]]과 같다 — **작업 전에 점유하고, 끝나면 푼다.** 다른 점은 락 저장소가 DB 테이블이 아니라 Redis이고, 고아 락 방어를 사람이 설계하는 대신 **TTL이 대신 맡는다**는 것이다.
+
+🟡 그래서 "TTL을 얼마로 둘까"는 튜닝 값이 아니라 **고아 락을 언제 포기할지의 정책**이다. 락 테이블 방식에서 만료 시간·강제 해제·세션 감지를 직접 만들어야 하는 부담이 TTL 한 줄로 접힌 것.
+
 ## 연결
 
+- [[Pessimistic Offline Lock]] — 같은 역할의 상위 패턴. TTL이 고아 락 방어를 대신한다
+- [[네임드 락]] — 같은 일을 DB 안에서. 세션이 죽어야 풀린다
+- [[선착순 쿠폰 발급 동시성]] — 위 수치의 출처
+- [[원자적 UPDATE로 푸는 동시성]] — 락 없이 푸는 쪽
 - [[멱등성]] — 함께 써야 하는 짝
 - [[Redis 분산락의 함정]] — TTL 만료와 GC 정지가 겹칠 때
 - [[Redisson 동작]] — watchdog, 재진입

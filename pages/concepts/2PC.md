@@ -6,7 +6,7 @@ tags: [distributed-transaction, transaction, mysql]
 sources: ["[[분산 트랜잭션 학습노트]]"]
 moc: ["[[MOC-분산시스템]]"]
 created: 2026-08-15
-updated: 2026-08-15
+updated: 2026-08-16
 ---
 
 ## 한 줄 정의
@@ -76,8 +76,18 @@ XA COMMIT 'product1';                            -- ← 이 순간 터미널 2�
 
 💬 면접에서 "느려서 안 씁니다"로 끝내면 얕다. 느린 건 결과이고 원인은 **블로킹**이다.
 
+## 실험으로 확인한 것
+
+🟢 [[2PC 실험]]에서 MySQL XA로 직접 재현했다.
+
+- **in-doubt가 실제로 매달린다** — prepare 직후 코디네이터가 죽고 커넥션이 끊겨도 prepared 트랜잭션은 살아 있다. **문제는 매달려 있다는 사실 자체를 아무도 모른다는 것.**
+- `XA RECOVER`가 유일한 발견 수단 — 커넥션과 무관하게 서버에 남은 미결 트랜잭션을 찾아준다
+- **그동안 다른 요청은 `ERROR 1205 Lock wait timeout exceeded`** 로 막힌다. 같은 행 SELECT는 커밋 전 옛 값을 본다
+- JTA(Narayana·Atomikos)를 쓰면 `@Transactional` 한 줄로 끝나지만 🔴 **편해지는 건 코드지 성질이 아니다. 블로킹은 그대로 남는다**
+
 ## 연결
 
+- [[2PC 실험]] — 위 내용을 직접 돌려본 것
 - [[분산 트랜잭션이 필요한 순간]] — 이 문제가 왜 생겼는지
 - [[TCC]] — 2PC의 Prepare/Commit을 **비즈니스 API로 다시 만든 것**
 - [[Saga 패턴]] — 예약조차 없이 즉시 실행하고 되돌리는 반대편
