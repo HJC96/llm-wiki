@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki Ingest"
+  short_description: "원본 자료를 읽고 기존 위키 페이지와 출처·MOC를 함께 갱신"
+  default_prompt: "$llm-wiki-ingest 상태를 확인해줘."

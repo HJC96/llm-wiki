@@ -11,6 +11,8 @@ Obsidian이 IDE, LLM이 프로그래머, 위키가 코드베이스.
 Obsidian → `Open folder as vault` → 이 폴더 선택.
 사람의 입구는 [`MOC/MOC-홈.md`](MOC/MOC-홈.md), LLM의 입구는 [`index.md`](index.md).
 
+Codex와 일반 ChatGPT에서도 사용할 수 있다. 설치 구조, 명령 예시, ChatGPT 업로드 묶음과 결과 반영 방법은 [사용 안내](meta/ChatGPT-Codex-사용법.md)를 참고한다. Codex는 [`AGENTS.md`](AGENTS.md)와 `.agents/skills/`를 읽고, 기존 Claude 설정과 스키마를 공유한다.
+
 ## 3레이어
 
 | 레이어 | 위치 | 누가 쓰나 |

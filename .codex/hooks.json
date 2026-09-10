@@ -1,0 +1,18 @@
+{
+  "description": "LLM Wiki raw 원본 직접 편집 보호",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^(apply_patch|Edit|Write|NotebookEdit)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/llm_wiki/protect_raw.py\"",
+            "timeout": 10,
+            "statusMessage": "raw 원본 보호 검사"
+          }
+        ]
+      }
+    ]
+  }
+}

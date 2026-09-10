@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki Tag"
+  short_description: "원본 본문을 보존하며 제목·분류·태그 메타데이터를 추가"
+  default_prompt: "$llm-wiki-tag 상태를 확인해줘."

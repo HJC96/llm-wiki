@@ -84,3 +84,9 @@ meta/프로필.md
 # Python
 __pycache__/
 *.pyc
+
+# ChatGPT용 로컬 위키 사본 (생성 시점의 콘텐츠 묶음)
+output/chatgpt/
+
+# 블로그 초안 (사람이 직접 고치는 문서. 스키마의 페이지가 아니다)
+drafts/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki Query"
+  short_description: "위키의 출처를 인용해 답하고 요청하면 종합·면접 페이지로 저장"
+  default_prompt: "$llm-wiki-query 낙관적 락과 비관적 락을 위키 근거로 비교해줘."

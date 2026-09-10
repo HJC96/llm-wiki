@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki Lint"
+  short_description: "위키의 링크·메타데이터·오래된 페이지와 고아 페이지 점검"
+  default_prompt: "$llm-wiki-lint 점검해줘."
