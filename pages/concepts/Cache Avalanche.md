@@ -6,7 +6,7 @@ tags: [cache, redis, performance]
 sources: ["[[deep-dive 실험실]]"]
 moc: ["[[MOC-Spring]]"]
 created: 2026-08-16
-updated: 2026-08-16
+updated: 2026-09-10
 ---
 
 ## 한 줄 정의
@@ -45,6 +45,8 @@ Spring Cache 추상화는 캐시 이름 단위로 TTL을 정한다 — **키마�
 🔴 만료 시점이 달라지면 **같은 배치로 넣은 데이터 사이에 세대 차이**가 생긴다. 함께 갱신돼야 하는 데이터라면 문제가 된다.
 
 ## 연결
+
+- [[일관된 해싱]] — 노드 증감으로도 같은 모양의 대량 미스가 난다. 원인만 다르다
 
 - [[Cache Stampede]] — 키 하나가 만료될 때
 - [[Cache Penetration]] — 없는 키가 관통할 때

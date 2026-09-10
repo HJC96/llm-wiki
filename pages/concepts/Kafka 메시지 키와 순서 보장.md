@@ -3,10 +3,10 @@ title: Kafka 메시지 키와 순서 보장
 type: concept
 status: growing
 tags: [kafka, distributed, concurrency]
-sources: ["[[분산 트랜잭션 학습노트]]"]
+sources: ["[[분산 트랜잭션 학습노트]]", "[[결제 시스템 백엔드 학습 가이드]]"]
 moc: ["[[MOC-분산시스템]]"]
 created: 2026-08-15
-updated: 2026-08-15
+updated: 2026-08-31
 ---
 
 ## 한 줄 정의
@@ -64,3 +64,5 @@ public void handle(OrderPlacedEvent event) { ... }
 - [[Kafka 전달 보장]] · [[컨슈머 그룹과 리밸런싱]]
 - [[정확히 한 번 전달의 불가능성]]
 - 면접: [[Kafka에서 순서 보장은 어떻게 하나]]
+- [[Kafka 전달 보장]] — acks·오프셋 커밋 시점이 정하는 유실/중복 경계
+- [[컨슈머 그룹과 리밸런싱]] — 파티션 할당이 병렬성과 순서 범위를 동시에 정한다

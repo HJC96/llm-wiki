@@ -6,7 +6,7 @@ tags: [cache, concurrency, redis]
 sources: ["[[deep-dive 실험실]]"]
 moc: ["[[MOC-Spring]]", "[[MOC-동시성]]"]
 created: 2026-08-16
-updated: 2026-08-16
+updated: 2026-09-10
 ---
 
 ## 한 줄 정의
@@ -72,6 +72,7 @@ if (lock.tryLock(key)) {
 ## 연결
 
 - [[Cache Penetration]] · [[Cache Avalanche]] — 캐시가 무너지는 다른 두 방식
+- [[캐시 축출 정책]] — 만료뿐 아니라 **축출**로도 인기 키가 빠진다. 축출이 잦으면 스탬피드 위험이 같이 오른다
 - [[Redis 분산락]] — DCL 방어에 쓰이는 것
 - [[Cache Aside]] — miss 구간이 생기는 구조
 - 실험: [[Spring Cache Redis]] · [[캐시 패턴 비교]]

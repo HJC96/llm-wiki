@@ -3,7 +3,7 @@ title: MOC-Java
 type: moc
 tags: [meta, java]
 created: 2026-08-15
-updated: 2026-08-15
+updated: 2026-08-31
 ---
 
 # MOC — Java
@@ -38,6 +38,7 @@ updated: 2026-08-15
 세부는 [[MOC-동시성]].
 
 - [[Java 메모리 모델]] · [[volatile과 가시성]] · [[synchronized의 동작]]
+- [[블로킹과 비동기는 다른 축]] ✅ — 네 조합. 동기 논블로킹이 실제로 쓰이는 자리는 셋뿐
 - [[ExecutorService]] · [[CompletableFuture]]
 
 ## 버전

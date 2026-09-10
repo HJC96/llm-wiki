@@ -3,10 +3,10 @@ title: Lost Update
 type: concept
 status: growing
 tags: [concurrency, lock, mysql]
-sources: ["[[분산 트랜잭션 학습노트]]", "[[Optimistic Offline Lock (PoEAA)]]"]
+sources: ["[[분산 트랜잭션 학습노트]]", "[[Optimistic Offline Lock (PoEAA)]]", "[[결제 시스템 백엔드 학습 가이드]]"]
 moc: ["[[MOC-동시성]]", "[[MOC-데이터베이스]]"]
 created: 2026-08-15
-updated: 2026-08-22
+updated: 2026-08-31
 ---
 
 ## 한 줄 정의
@@ -91,3 +91,4 @@ Fowler는 이 상황의 lost update를 오프라인 동시성 문제로 따로 �
 - 종합: [[조회와 저장이 다른 요청일 때 무엇으로 막는가]]
 - 실험: [[선착순 쿠폰 발급 동시성]]
 - 면접: [[낙관적 락과 비관적 락 중 언제 무엇을]]
+- [[낙관적 락 재시도 경계]] — 재시도할 때 최신 값을 다시 읽지 않으면 이 문제가 그대로 재현된다
