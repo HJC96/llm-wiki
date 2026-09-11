@@ -7,7 +7,7 @@ sources: ["[[deep-dive 실험실]]"]
 moc: ["[[MOC-실험]]", "[[MOC-Spring]]"]
 repo: deep-dive/labs/spring-data-jpa
 created: 2026-08-16
-updated: 2026-08-16
+updated: 2026-09-11
 ---
 
 ## 확인하려던 것
@@ -77,7 +77,7 @@ HTTP 요청 하나가 SQL을 몇 번 날리는지 세서 Micrometer 메트릭으
 - 개념: [[낙관적 락]] — 이 실험이 SQL 수준에서 뒷받침
 - 개념: [[Lost Update]] — 이 락이 막는 것
 - 개념: [[Micrometer 계측기 선택]] — 쿼리 카운트 지표
-- 개념: [[JPA N+1]] · [[영속성 컨텍스트]]
+- 개념: [[JPA N+1]] · [[영속성 컨텍스트]] ✅ — `flush()` + `clear()`로 1차 캐시를 비워야 실제 SQL이 보인다
 - 실험: [[선착순 쿠폰 발급 동시성]] — 실제 경합에서의 비용
 - 코드: `~/Desktop/git/deep-dive/labs/spring-data-jpa/`
 - 원본: `raw/code/spring-data-jpa.md`

@@ -20,11 +20,11 @@ updated: 2026-08-31
 
 | 레이어 | 개수 |
 |---|---|
-| 소스 (`pages/sources/`) | 14 |
-| 개념 (`pages/concepts/`) | 69 |
+| 소스 (`pages/sources/`) | 20 |
+| 개념 (`pages/concepts/`) | 81 |
 | 엔티티 (`pages/entities/`) | 3 |
 | 실험 (`pages/labs/`) | **14** |
-| 종합 (`pages/syntheses/`) | 6 |
+| 종합 (`pages/syntheses/`) | 7 |
 | 면접 (`pages/questions/`) | 8 |
 | 실무 (`pages/private/`) 🔒 | 7 |
 | MOC | 12 |
@@ -41,6 +41,12 @@ updated: 2026-08-31
 | [[OpenTelemetry 분산 추적 실습]] | code | Collector → Tempo → Grafana. 코드 변경 없이 `-javaagent`로 계측 | 2026-09-10 |
 | [[시스템 설계 분산 캐싱]] | lecture | 시스템 설계 수업 6장. 축출 정책과 노드 분배 | 2026-09-10 |
 | [[블로그 글쓰기 스타일 분석]] | note | 블로그 6편에서 뽑은 문체·전개 기준 | 2026-09-10 |
+| [[클린스프링 검증·엔티티 상태·테스트 픽스처]] | lecture | splearn 문답. 검증 책임·엔티티 상태·Natural ID·Fixture | 2026-09-11 |
+| [[클린스프링 List 순서와 orphanRemoval]] | lecture | 순서 관리와 행 삭제는 다른 책임이다 | 2026-09-11 |
+| [[클린스프링 Section 간 Lesson 이동]] | lecture | this가 누구인가, 이동은 더하기+빼기 한 쌍 | 2026-09-11 |
+| [[클린스프링 DIP로 모듈 순환 끊기]] | lecture | 인터페이스를 만드는 게 아니라 소유권을 옮긴다 | 2026-09-11 |
+| [[클린스프링 전체 문답 118]] | lecture | 118문답 중 앞 4건과 안 겹치는 것만 | 2026-09-11 |
+| [[Splearn 개발가이드와 용어사전]] | lecture | 위 문답들의 1차 원본. 팀 규칙 94줄 + 용어표 | 2026-09-11 |
 | [[분산 트랜잭션 학습노트]] | lecture | 주문 시스템을 모놀리식 → MSA로 쪼갠 뒤 2PC·TCC·Saga로 트랜잭션을 다시 붙이는 과정 | 2026-08-15 |
 | [[Optimistic Offline Lock (PoEAA)]] | article | 업무 트랜잭션이 여러 시스템 트랜잭션에 걸칠 때. 커밋 전 검증이 곧 락 획득 | 2026-08-22 |
 | [[Pessimistic Offline Lock (PoEAA)]] | article | 먼저 시도할 건 낙관이되, 실패 비용이 크면 뒤집힌다 | 2026-08-22 |
@@ -85,6 +91,18 @@ updated: 2026-08-31
 | [[로컬 캐시와 인스턴스 정합성]] | WAS 2대면 evict가 전파 안 됨. 테이블 버전 키 | [[MOC-Spring]] | growing |
 | [[캐시 축출 정책]] | TTL이 신선도면 축출은 공간. LRU·LFU와 O(1) 구조 | [[MOC-Spring]] | growing |
 | [[일관된 해싱]] | 노드 수를 분모에 넣으면 확장이 곧 전면 미스 | [[MOC-분산시스템]] | seed |
+| [[영속성 컨텍스트]] | 상태 4단계. `merge()`는 원본이 아니라 새 인스턴스를 반환 | [[MOC-Spring]] | growing |
+| [[컬렉션 순서와 @OrderColumn]] | 순서 관리와 행 삭제는 다른 책임. orphanRemoval을 못 켜는 경우 | [[MOC-Spring]] | growing |
+| [[양방향 연관관계 동기화]] | 한쪽만 바꾸면 객체 그래프와 DB가 다른 말을 한다 | [[MOC-Spring]] | growing |
+| [[모듈 간 순환 의존]] | DIP의 가로 축. 실행 흐름과 코드 의존 방향은 반대가 된다 | [[MOC-설계]] | growing |
+| [[Slice와 Layer]] | Layer는 수평(기술), Slice는 수직(업무). 직교한다 | [[MOC-설계]] | growing |
+| [[개발 가이드 문서]] | 규칙을 문서로. 기계가 판별 가능한 것만 테스트로 | [[MOC-설계]] | growing |
+| [[애그리거트 간 참조]] | 직접 참조해도 된다. 갈리는 건 조회냐 변경이냐 | [[MOC-설계]] | growing |
+| [[Spring Data Repository 계약]] | `save()`는 JPA가 아니라 Spring Data의 계약 | [[MOC-Spring]] | growing |
+| [[null 안전성 애노테이션]] | `@Nonnull`과 `@NotNull`은 이름만 닮았다 | [[MOC-Java]] | growing |
+| [[@Valid와 @Validated]] | 제약 선언과 검증 실행은 다른 일 | [[MOC-Spring]] | growing |
+| [[Natural ID]] | Unique하다고 전부 Natural ID가 아니다. 안정성까지 | [[MOC-설계]] | growing |
+| [[테스트 픽스처 상속 구조]] | 반복은 줄지만 데이터 출처가 흐려진다 | [[MOC-설계]] | growing |
 | [[ArchUnit으로 아키텍처 강제하기]] | 코드리뷰로 지키던 합의를 CI가 지키게 | [[MOC-설계]] | growing |
 | [[Micrometer 계측기 선택]] | 누적(Counter)·현재값(Gauge)·시간(Timer) 세 축 | [[MOC-인프라]] | growing |
 | [[분산 추적]] | 지표가 "얼마나"면 추적은 "이 한 건이 어디를 지났나" | [[MOC-인프라]] · [[MOC-분산시스템]] | growing |
@@ -177,6 +195,7 @@ updated: 2026-08-31
 | [[도메인 모델과 JPA 엔티티를 분리해야 하는가]] | `@Entity`를 어댑터로 빼고 도메인 엔티티와 따로 둬야 하나 | 높음 | 2026-08-31 |
 | [[결제 시스템 키워드 지도]] | 결제 키워드 35개가 각각 위키 어디에 붙어 있나 | 높음 | 2026-09-05 |
 | [[결제 도메인 개념과 백엔드 키워드의 연결]] | 결제 도메인의 어떤 사실이 어떤 백엔드 키워드를 요구하나 | 중간 | 2026-09-08 |
+| [[검증 로직은 어디에 두는가]] | Validation은 DTO·도메인·Validator 중 어디에 두나 | 높음 | 2026-09-11 |
 
 ---
 
